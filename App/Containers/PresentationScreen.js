@@ -24,43 +24,19 @@ class PresentationScreen extends React.Component {
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
         <ScrollView style={styles.container}>
           <View style={styles.centered}>
-            <Image source={Images.clearLogo} style={styles.logo} />
+            
           </View>
 
           <View style={styles.section} >
             <Text style={styles.sectionText} >
-              Default screens for development, debugging, and alpha testing
-              are available below.
+              Click below to search for stocks.
             </Text>
           </View>
 
-          <RoundedButton onPress={this.props.componentExamples}>
-            Component Examples Screen
-          </RoundedButton>
-
-          <RoundedButton onPress={this.props.usageExamples}>
-            Usage Examples Screen
-          </RoundedButton>
-
-          <RoundedButton onPress={this.props.apiTesting}>
-            API Testing Screen
-          </RoundedButton>
-
-          <RoundedButton onPress={this.props.theme}>
-            Theme Screen
-          </RoundedButton>
-
-          <RoundedButton onPress={this.props.deviceInfo}>
-            Device Info Screen
-          </RoundedButton>
-
+        
           <RoundedButton onPress={this.props.stockSearch}>
             Stock Search
           </RoundedButton>
-
-          <View style={styles.centered}>
-            <Text style={styles.subtitle}>Made with ❤️ by Infinite Red</Text>
-          </View>
 
         </ScrollView>
       </View>

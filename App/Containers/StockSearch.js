@@ -1,5 +1,7 @@
 import React from 'react'
 import { View, Text, TouchableHighlight, TextInput } from 'react-native'
+import dismissKeyboard from 'dismissKeyboard'
+
 import { connect } from 'react-redux'
 import Actions from '../Actions/Creators'
 import RoundedButton from '../Components/RoundedButton'
@@ -27,12 +29,20 @@ class StockSearch extends React.Component {
           style={styles.textInput}
           placeholder="Type a company name (i.e. Amazon)"
           onChangeText={(text) => this.setState({text})}
-          onSubmitEditing={() => this.props.getSymbols(this.state.text)}
+          value={this.state.text}
+          onSubmitEditing={() => {
+            this.props.getSymbols(this.state.text)
+            this.setState({text: ''})
+          }}
           />
           </View>
         </View>
         <RoundedButton
-          onPress={() => this.props.getSymbols(this.state.text)}
+          onPress={() => {
+            this.props.getSymbols(this.state.text)
+            this.setState({text: ''})
+            dismissKeyboard();
+          }}
           text='Get Symbols'
         >
        

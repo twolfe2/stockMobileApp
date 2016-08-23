@@ -142,7 +142,7 @@ componentWillReceiveProps (newProps) {
   render () {
     return (
       <View style={styles.container}>
-        <AlertMessage title='Nothing to See Here, Move Along' show={this._noRowData()} />
+        <AlertMessage title='No Results, search above' show={this._noRowData()} />
         <ListView
           contentContainerStyle={styles.listContent}
           dataSource={this.state.dataSource}

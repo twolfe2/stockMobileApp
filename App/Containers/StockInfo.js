@@ -20,7 +20,7 @@ class StockInfo extends React.Component {
     let infoData = <Text style={styles.text}>'Loading....'</Text>
     if(info) {
       infoData = Object.keys(info).map((value, index) => {
-        return <Text style={styles.text}>
+        return <Text style={styles.text} key={index}>
           {`${value} : ${info[value]}`}
         </Text>
       })
