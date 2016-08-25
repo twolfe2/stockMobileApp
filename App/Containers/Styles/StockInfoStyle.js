@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { Colors, Metrics, ApplicationStyles } from '../../Themes/'
+import { Colors, Metrics, ApplicationStyles, Fonts } from '../../Themes/'
 
 export default StyleSheet.create({
   container: {
@@ -10,13 +10,20 @@ export default StyleSheet.create({
   text: {
     color: Colors.coal
   },
- form: {
-  backgroundColor: Colors.snow,
-  margin: Metrics.baseMargin,
-  borderRadius: 4
-},
-row: {
-  paddingVertical: Metrics.doubleBaseMargin,
-  paddingHorizontal: Metrics.doubleBaseMargin
-}
+   form: {
+    backgroundColor: Colors.snow,
+    margin: Metrics.baseMargin,
+    borderRadius: 4
+  },
+  row: {
+    paddingVertical: Metrics.doubleBaseMargin,
+    paddingHorizontal: Metrics.doubleBaseMargin
+  },
+  heading: {
+    ...Fonts.style.h4,
+    textAlign: 'center'
+  }
+  
+
+
 })

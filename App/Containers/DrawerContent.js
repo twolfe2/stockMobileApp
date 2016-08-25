@@ -43,7 +43,6 @@ class DrawerContent extends Component {
   render () {
     return (
       <ScrollView style={styles.container}>
-        <Image source={Images.logo} style={styles.logo} />
         <DrawerButton text='Stock Search' onPress={this.handlePressStockSearch} />
         
         

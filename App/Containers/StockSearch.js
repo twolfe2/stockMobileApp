@@ -1,5 +1,14 @@
 import React from 'react'
-import { View, Text, TouchableHighlight, TextInput } from 'react-native'
+import {
+  ScrollView,
+  View,
+  Text,
+  TouchableHighlight,
+  TextInput,
+  ActivityIndicator,
+  MapView,
+  DatePickerIOS,
+} from 'react-native'
 import dismissKeyboard from 'dismissKeyboard'
 
 import { connect } from 'react-redux'
@@ -22,7 +31,8 @@ class StockSearch extends React.Component {
     const {symbols} = this.props;
     console.log('symbols', symbols);
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
+        
       <View style={styles.form}>
       <View style={styles.row}>
         <TextInput
@@ -37,26 +47,39 @@ class StockSearch extends React.Component {
           />
           </View>
         </View>
-        <RoundedButton
-          onPress={() => {
-            this.props.getSymbols(this.state.text)
-            this.setState({text: ''})
-            dismissKeyboard();
-          }}
-          text='Get Symbols'
-        >
-       
-        </RoundedButton>
+   
+        {this.props.fetching ?
+        <ActivityIndicator
+           style={{
+             alignItems: 'center',
+             justifyContent: 'center',
 
+           }}
+           animating={true}
+           size={'large'}
+           color={"#f5b44b"}
+         /> : null }
         <StockSymbolsList />
-      </View>
+      </ScrollView>
     )
   }
 }
 
+ // <RoundedButton
+        //   onPress={() => {
+        //     this.props.getSymbols(this.state.text)
+        //     this.setState({text: ''})
+        //     dismissKeyboard();
+        //   }}
+        //   text='Get Symbols'
+        // >
+       
+        // </RoundedButton>
+
 const mapStateToProps = (state) => {
   return {
-    symbols: state.stock.symbols
+    symbols: state.stock.symbols,
+    fetching: state.stock.fetching
   }
 }
 
@@ -66,5 +89,6 @@ const mapDispatchToProps = (dispatch) => {
     
   }
 }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(StockSearch)
